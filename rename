@@ -1,0 +1,17 @@
+i=1
+theme=avis
+
+while getopts s:n:t: flag
+do
+	case "${flag}" in
+		s) string=${OPTARG};;
+		n) i=${OPTARG};;
+		t) theme=${OPTARG};;
+	esac
+done
+
+
+for j in *.jpg; do
+	mv "$j" "test-${string}-${theme}-$i.jpg";
+	i=$((i+1));
+done;
